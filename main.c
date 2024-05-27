@@ -12,7 +12,7 @@ int pos[2] = {5,14};
 int history[ARRAY_ROWS][2];
 int gameover = 0;
 int points = 1;
-char moving = 'd';
+char moving = 'u';
 
 // SETUP FOR THE SCREEN AND GAMEPLAY LOOP
 // --------------------------------------
@@ -313,6 +313,8 @@ int main()
         moveHead(moving, &body);
         input = getch();
 
+        Sleep(140);
+
         if (input != ERR) 
         {
             if ((input == KEY_DOWN || input == 's') && moving != 'u') moving = 'd';
@@ -321,7 +323,7 @@ int main()
             else if ((input == KEY_UP || input == 'w') && moving != 'd') moving = 'u';
             else if (input == 'q') gameover = 1;
         }
-        Sleep(200);
+        
         refresh();
     } while (!gameover);
 
