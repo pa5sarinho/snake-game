@@ -3,6 +3,14 @@
 #include <ncurses.h>
 #include <time.h>
 
+/*
+SNAKE GAME BY PASSARINHO
+
+known issues:
+    Apples always generate at the same place (and sometimes fail to at all)
+    Collision check with self fails sometimes
+*/
+
 #define ARRAY_ROWS 200
 
 char** map;
@@ -309,9 +317,9 @@ int main()
 
     do {
         erase();
+        moveHead(moving, &body);
         printMap();
         printw("\nSCORE  %d", points-1);
-        moveHead(moving, &body);
         input = getch();
 
         Sleep(140);
