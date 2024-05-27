@@ -251,7 +251,7 @@ void moveHead(char direction, struct TwoDArray* body)
         break;
     
     case 'd':
-        if (pos[0] > 0 && map[x+1][y] == '%')
+        if (pos[0] > rows-1 && map[x+1][y] == '%')
         {
             gameover = 1;
             break;
@@ -310,6 +310,7 @@ int main()
     do {
         erase();
         printMap();
+        printw("\nSCORE  %d", points-1);
         moveHead(moving, &body);
         input = getch();
 
